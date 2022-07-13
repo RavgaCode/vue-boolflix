@@ -15,7 +15,19 @@
         <div class="col-4" v-for="(movie, index) in movieList" :key="index">
           <h2>{{ movie.title }}</h2>
           <h3>{{ movie.original_title }}</h3>
-          <h4>{{ movie.original_language }}</h4>
+          <!-- Language flag -->
+          <img
+            v-if="availableFlags.includes(movie.original_language)"
+            :src="require(`../assets/img/${movie.original_language}.svg`)"
+            alt=""
+            class="language-flag"
+          />
+          <img
+            v-else
+            src="../assets/img/euro.svg"
+            alt=""
+            class="language-flag"
+          />
           <h5>{{ movie.vote_average }}</h5>
         </div>
       </div>
@@ -31,6 +43,7 @@ export default {
     return {
       text: "",
       movieList: [],
+      availableFlags: ["en", "it"],
     };
   },
   methods: {
@@ -46,10 +59,18 @@ export default {
       // Resetto la searchbar
       this.text = "";
     },
+    changeLanguage() {
+      this.movieList.forEach((element) => {
+        console.log(element.original_language);
+      });
+    },
   },
 };
 </script>
 
 <style lang="scss">
 @import "../style/style.scss";
+.language-flag {
+  width: 30px;
+}
 </style>
