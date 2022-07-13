@@ -14,6 +14,10 @@
       <!-- Movie section -->
       <div class="row">
         <div class="col-4" v-for="(movie, index) in movieList" :key="index">
+          <img
+            :src="`https://image.tmdb.org/t/p/w342${movie.backdrop_path}`"
+            alt=""
+          />
           <h2>{{ movie.title }}</h2>
           <h3>{{ movie.original_title }}</h3>
           <!-- Language flag -->
@@ -35,6 +39,10 @@
       <!-- Series section -->
       <div class="row">
         <div class="col-4" v-for="(serie, index) in seriesList" :key="index">
+          <img
+            :src="`https://image.tmdb.org/t/p/w342${serie.backdrop_path}`"
+            alt=""
+          />
           <h2>{{ serie.name }}</h2>
           <h3>{{ serie.original_name }}</h3>
           <!-- Language flag -->
