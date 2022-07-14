@@ -1,1 +1,7 @@
-@import "~bootstrap/scss/bootstrap";
+.ms_container {
+  width: 90vh;
+  margin: 0 auto;
+  height: 100%;
+}
+// VARIABLES
+$main-container-width: 90vh;
