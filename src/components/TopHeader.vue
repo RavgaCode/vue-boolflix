@@ -4,8 +4,15 @@
       <div class="flex-container">
         <h1>BOOLFLIX</h1>
         <div class="search-bar">
-          <input type="text" />
-          <button>Cerca</button>
+          <input
+            @keyup.enter="$emit('searchMovie', text)"
+            type="text"
+            placeholder="Che film stai cercando?"
+            v-model="text"
+          />
+          <button type="submit" @click="$emit('searchMovie', text)">
+            Cerca
+          </button>
         </div>
       </div>
     </div>
@@ -15,6 +22,11 @@
 <script>
 export default {
   name: "TopHeader",
+  data() {
+    return {
+      text: "",
+    };
+  },
 };
 </script>
 
